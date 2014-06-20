@@ -8,4 +8,5 @@ backbone-chat
 4. Require.js
 5. Node.js
 6. WebSockets
+7. LESS
 
