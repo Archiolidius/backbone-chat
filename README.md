@@ -1,7 +1,7 @@
 backbone-chat
 =============
+<h3>Using technology:</h3>
 
-Using technology:
 1. JavaScript/jQuery
 2. Backbone.js
 3. Underscore.js
