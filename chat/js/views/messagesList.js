@@ -3,8 +3,13 @@ var app = app || {};
 app.messageListView = Backbone.View.extend({
     el: '#subshribe',
 
+    events:{
+        'renderOneMessage':'renderOneMessage'
+    },
+
     initialize: function (itinialMessage) {
         this.collection = new app.MessagesList(itinialMessage);
+        this.listenTo(this.collection,'add', this.renderMessage);
         this.render();
     },
 
@@ -20,5 +25,8 @@ app.messageListView = Backbone.View.extend({
             model:item
         });
         this.$el.append(boockViev.render().el)
+    },
+    renderOneMessage : function(obj){
+        this.collection.add(new app.message({messageText : obj.text}))
     }
 });

@@ -9,6 +9,8 @@ app.massage = Backbone.Model.extend({
         messageText: 'lorem lorem lorem lorem lorem lorem lorem lorem lorem '
     }
 });
+
+app.chatApplication = Backbone.Model.extend({});
 /*TEMP*/
 
 app.MessagesList = Backbone.Collection.extend({

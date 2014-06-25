@@ -7,4 +7,5 @@ $(function() {
         { nickName: 'JavaScriptw', date: '20.06.2', messageText: 'dssfbjdsbfj'}
     ];
     new app.messageListView( messages );
+    new app.chatApplicationView();
 });
