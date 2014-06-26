@@ -42,7 +42,7 @@ webSocketServer.on('connection', function (ws) {
                 type: 'systemMessage',
                 nickName: null,
                 clientsCount: clients_len,
-                date : date
+                date: date
             };
             for (var key in clients) {
                 clients[key].send(JSON.stringify(data))
@@ -54,7 +54,7 @@ webSocketServer.on('connection', function (ws) {
                     messageText: message,
                     type: 'userMessage',
                     nickName: nickName,
-                    date : date
+                    date: date
                 };
                 //ws.send(JSON.stringify(data))
                 clients[key].send(JSON.stringify(data));

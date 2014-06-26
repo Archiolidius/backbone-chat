@@ -7,4 +7,3 @@ app.message = Backbone.Model.extend({
         messageText: 'default text'
     }
 });
-
