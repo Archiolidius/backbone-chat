@@ -1,6 +1,3 @@
-/**
- * Created by alex on 14.06.2014.
- */
 var http = require('http');
 var WebSocketServer = new require('ws');
 
