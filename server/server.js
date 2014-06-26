@@ -73,7 +73,7 @@ webSocketServer.on('connection', function (ws) {
             return i;
         })();
         var data = {
-            text: 'User <strong>' + nickName + '</strong> leave from this chat',
+            messageText: 'User <strong>' + nickName + '</strong> leave from this chat',
             type: 'systemMessage',
             clientsCount: clients_len
         }

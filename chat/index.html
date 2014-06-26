@@ -12,7 +12,6 @@
     <script src="js/lib/perfect-scrollbar.js"></script>
     <script src="js/lib/underscore-1.6.0.js"></script>
     <script src="js/lib/backbone-1.1.2.js"></script>
-
 </head>
 <body>
 <div class="container" id="chat">
@@ -67,8 +66,9 @@
 </div>
 
 <script id="messageTemplate" type="script/template">
+    <img src="img/default-user-icon.png" alt="" class="userIcon pull-left"/>
         <strong class="nickname"><%= nickName %></strong>
-        <span class="messageDate pull-right"><span class="glyphicon glyphicon-time"></span><%= date %></span>
+        <span class="messageDate pull-right"><span class="glyphicon glyphicon-time"></span> <%= date %></span>
 
         <p class="messageText"><%= messageText %></p>
 </script>

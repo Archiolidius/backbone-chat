@@ -5,9 +5,9 @@ app.chatApplicationView = Backbone.View.extend({
 
     events: {
         'click #sendMessage': 'sendMessage',
+        'submit #messageForm': 'sendMessage',
         'click .sendNickname': 'sendNickname',
         'submit #nicknameForm': 'sendNickname',
-        'submit #messageForm': 'sendMessage',
         'keydown #MessageForSend': 'keyAction',
         'refreshOnlineUserCount': 'refreshOnlineUserCount'
 
@@ -19,15 +19,21 @@ app.chatApplicationView = Backbone.View.extend({
     },
 
     sendMessage: function (e) {
-        //e.preventDefault();
+        e.preventDefault();
         var textMessage = this.$el.find('#MessageForSend').val();
-        SOCKETS.sendMessage(textMessage);
+        if(textMessage !== '') {
+            SOCKETS.sendMessage(textMessage);
+        }
+        this.$el.find('#MessageForSend').val('');
+        return false;
     },
 
     sendNickname: function (e) {
         e.preventDefault();
         var nickname = this.$el.find('#sendNickname').val();
-        SOCKETS.sendNickname(nickname);
+        if(nickname !== '') {
+            SOCKETS.sendNickname(nickname);
+        }
     },
 
     keyAction: function (e) {
@@ -37,8 +43,7 @@ app.chatApplicationView = Backbone.View.extend({
                 //if Shift+Enter = new line
             }
             else {
-                that.sendMessage();
-                that.$el.find('#MessageForSend').val('');
+                that.sendMessage(e);
             }
             return false;
         }

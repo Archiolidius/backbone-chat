@@ -50,3 +50,8 @@ form[name='publish'] button[type='button'] {
 .smile[data-smile=":D"] {
     background-position: -82px -46px;
 }
+
+img.userIcon{
+    height: 50px;
+    padding-right: 10px;
+}
