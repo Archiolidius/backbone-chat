@@ -10,6 +10,21 @@ var webSocketServer = new WebSocketServer.Server({port: 8081});
 webSocketServer.on('connection', function (ws) {
     var nickName;
     ws.on('message', function (message) {
+        var date = (function () {
+            var date = new Date();
+            var curTime = {};
+            curTime.hours = date.getHours();
+            curTime.minutes = date.getMinutes();
+            curTime.second = date.getSeconds();
+            var dateString = (function () {
+                var str = '';
+                for (var key in curTime) {
+                    str += curTime[key] += ':';
+                }
+                return str.substring(0, str.length - 1);
+            })();
+            return dateString;
+        })();
         if (message.split(':')[0] === 'Nickname') {
             nickName = message.split(':')[1];
             clients[nickName] = ws;
@@ -23,10 +38,11 @@ webSocketServer.on('connection', function (ws) {
             })();
             console.log(clients_len);
             var data = {
-                text: 'User <strong>' + nickName + '</strong> has been connected to this chat',
+                messageText: 'User <strong>' + nickName + '</strong> has been connected to this chat',
                 type: 'systemMessage',
-                nickname: null,
-                clientsCount: clients_len
+                nickName: null,
+                clientsCount: clients_len,
+                date : date
             };
             for (var key in clients) {
                 clients[key].send(JSON.stringify(data))
@@ -35,9 +51,10 @@ webSocketServer.on('connection', function (ws) {
             console.log('new message: ' + message);
             for (var key in clients) {
                 var data = {
-                    text: message,
+                    messageText: message,
                     type: 'userMessage',
-                    nickname: nickName
+                    nickName: nickName,
+                    date : date
                 };
                 //ws.send(JSON.stringify(data))
                 clients[key].send(JSON.stringify(data));

@@ -51,7 +51,7 @@ $(document).ready(function () {
                 var messageItem = '<div><h5 class="systemMessage">' + messageText + '</h5></div>';
                 $('#subshribe').append(messageItem);
             } else if (type == 'userMessage') {
-                var messageItem = '<li class="subshribeItem"><strong class="nickname">' + nickname + '</strong><span class="massageDate pull-right"><span class="glyphicon glyphicon-time"></span>  ' + this.getDate() + '</span><p class="messageText">' + messageText + '</p></li>';
+                var messageItem = '<li class="subshribeItem"><strong class="nickname">' + nickname + '</strong><span class="messageDate pull-right"><span class="glyphicon glyphicon-time"></span>  ' + this.getDate() + '</span><p class="messageText">' + messageText + '</p></li>';
                 $('#subshribe').append(messageItem);
             }
 

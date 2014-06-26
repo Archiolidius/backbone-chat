@@ -5,8 +5,7 @@ app.chatApplicationView = Backbone.View.extend({
 
     events:{
         'click #sendMessage' : 'sendMessage',
-        'click .sendNickname' : 'sendNickname',
-        'renderOneMessage' : 'renderOneMessage'
+        'click .sendNickname' : 'sendNickname'
     },
     initialize : function(){
         $('#newUser').modal('show');

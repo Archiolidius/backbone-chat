@@ -26,7 +26,8 @@ app.messageListView = Backbone.View.extend({
         });
         this.$el.append(boockViev.render().el)
     },
-    renderOneMessage : function(obj){
-        this.collection.add(new app.message({messageText : obj.text}))
+    renderOneMessage : function(){
+        var obj = JSON.parse(event.data);
+        this.collection.add(new app.message(obj))
     }
 });
